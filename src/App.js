@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './style.css';
+import style from './Style.module.css'
 
 export default function App() {
-  const [name, setName] = useState('firoz');
-  useEffect(() => {
-    console.log('useEffect');
-  });
   return (
-    <div>
-      <h1>Hello {name}</h1>
-      <button onClick={() => setName("myName")}>Update Name</button>
+    <div className="App">
+      <h1 className="style1">Hello style type 1</h1>
+      <h1 style={{backgroundColor:"black",color:"red"}}>Hello style type 2</h1>
+      <h1 className={style.magic}>Hello style type 3</h1>
     </div>
   );
 }
