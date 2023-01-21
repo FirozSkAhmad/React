@@ -20,8 +20,10 @@ class User extends Component {
   //   return false;
   // }
   componentDidUpdate(preProps, preState, snapShot) {
-    console.log(snapShot);
     console.log('componentDidUpdate', preState, this.state.status);
+  }
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
   }
   render() {
     console.log('render');
