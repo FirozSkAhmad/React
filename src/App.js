@@ -5,9 +5,21 @@ import Table from 'react-bootstrap/Table';
 // const names = ['divya', 'pooja', 'sonali', 'shabiya'];
 
 const details = [
-  { name: 'divya', email: 'divya@gmail.com',contact:111 },
-  { name: 'divya', email: 'divya@gmail.com',contact:111 },
-  { name: 'divya', email: 'divya@gmail.com',contact:111 }
+  {
+    name: 'divya',
+    email: 'divya@gmail.com',
+    address: [{ Hn: 44, city: 'attili' }],
+  },
+  {
+    name: 'divya',
+    email: 'divya@gmail.com',
+    address: [{ Hn: 44, city: 'attili' }],
+  },
+  {
+    name: 'divya',
+    email: 'divya@gmail.com',
+    address: [{ Hn: 44, city: 'attili' }],
+  },
 ];
 
 export default function App() {
@@ -17,21 +29,32 @@ export default function App() {
         <h2 key={id}>My Name is:{name}</h2>
       ))} */}
       <Table striped bordered hover variant="dark">
-        <thead >
+        <thead>
           <tr>
             <td>Id</td>
             <td>name</td>
             <td>email</td>
-            <td>contact</td>
+            <td>address</td>
           </tr>
         </thead>
         <tbody>
           {details.map((data, id) => (
             <tr key={id}>
-              <td>{id+1}</td>
+              <td>{id + 1}</td>
               <td>{data.name}</td>
               <td>{data.email}</td>
-              <td>{data.contact}</td>
+              <td>
+                <Table striped bordered hover variant="dark">
+                <tbody>
+                  {data.address.map((item, id) => (
+                    <tr key={id}>
+                      <td>{item.Hn}</td>
+                      <td>{item.city}</td>
+                    </tr>
+                  ))}
+                </tbody>
+                </Table>
+              </td>
             </tr>
           ))}
         </tbody>
