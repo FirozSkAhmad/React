@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 class User extends Component {
   constructor() {
     super();
-    console.log(this.props);
+    console.log("constructor");
   }
   render() {
+    console.log("render")
     return (
-      <div>
+            <div>
         <h2>What's Up {this.props.state}</h2>
       </div>
     );
