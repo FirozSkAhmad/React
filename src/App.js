@@ -1,13 +1,19 @@
 import React from 'react';
 import './style.css';
-import style from './Style.module.css'
+import {Button} from 'react-bootstrap'
 
 export default function App() {
   return (
     <div className="App">
-      <h1 className="style1">Hello style type 1</h1>
-      <h1 style={{backgroundColor:"black",color:"red"}}>Hello style type 2</h1>
-      <h1 className={style.magic}>Hello style type 3</h1>
+      <Button variant="primary">Primary</Button>{' '}
+      <Button variant="secondary">Secondary</Button>{' '}
+      <Button variant="success">Success</Button>{' '}
+      <Button variant="warning">Warning</Button>{' '}
+      <Button variant="danger">Danger</Button>{' '}
+      <Button variant="info">Info</Button>{' '}
+      <Button variant="light">Light</Button>{' '}
+      <Button variant="dark">Dark</Button>
+      <Button variant="link">Link</Button>
     </div>
   );
 }
