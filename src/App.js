@@ -1,19 +1,36 @@
 import React from 'react';
 import './style.css';
-import {Button} from 'react-bootstrap'
+
+// const names = ['divya', 'pooja', 'sonali', 'shabiya'];
+
+const details = [
+  { name: 'divya', email: 'divya@gmail.com' },
+  { name: 'divya', email: 'divya@gmail.com' },
+  { name: 'divya', email: 'divya@gmail.com' },
+];
 
 export default function App() {
   return (
     <div className="App">
-      <Button variant="primary">Primary</Button>{' '}
-      <Button variant="secondary">Secondary</Button>{' '}
-      <Button variant="success">Success</Button>{' '}
-      <Button variant="warning">Warning</Button>{' '}
-      <Button variant="danger">Danger</Button>{' '}
-      <Button variant="info">Info</Button>{' '}
-      <Button variant="light">Light</Button>{' '}
-      <Button variant="dark">Dark</Button>
-      <Button variant="link">Link</Button>
+      {/* {names.map((name, id) => (
+        <h2 key={id}>My Name is:{name}</h2>
+      ))} */}
+      <table border="1">
+        <thead >
+          <tr>
+            <td>name</td>
+            <td>email</td>
+          </tr>
+        </thead>
+        <tbody>
+          {details.map((data, id) => (
+            <tr key={id}>
+              <td>{data.name}</td>
+              <td>{data.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
