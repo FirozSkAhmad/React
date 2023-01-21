@@ -5,11 +5,23 @@ class User extends Component {
     super();
     this.state = {
       status: false,
+      count: 0,
     };
     console.log('constructor');
   }
   toogle() {
+    console.log('toogle');
     this.setState({ status: !this.state.status });
+  }
+  componentDidMount() {
+    console.log('ComponentDidMount');
+  }
+  // shouldComponentUpdate() {
+  //   return false;
+  // }
+  componentDidUpdate(preProps, preState, snapShot) {
+    console.log(snapShot);
+    console.log('componentDidUpdate', preState, this.state.status);
   }
   render() {
     console.log('render');
