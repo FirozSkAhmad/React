@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import Table from 'react-bootstrap/Table';
+import ChildTable from './Table.js';
 
 // const names = ['divya', 'pooja', 'sonali', 'shabiya'];
 
@@ -23,6 +24,9 @@ const details = [
 ];
 
 export default function App() {
+  function Alert(data) {
+    alert(data);
+  }
   return (
     <div className="App">
       {/* {names.map((name, id) => (
@@ -45,14 +49,13 @@ export default function App() {
               <td>{data.email}</td>
               <td>
                 <Table striped bordered hover variant="dark">
-                <tbody>
-                  {data.address.map((item, id) => (
-                    <tr key={id}>
-                      <td>{item.Hn}</td>
-                      <td>{item.city}</td>
-                    </tr>
-                  ))}
-                </tbody>
+                  <tbody>
+                    {data.address.map((item, id) => (
+                      <tr key={id}>
+                        <ChildTable data={item} fn={Alert} />
+                      </tr>
+                    ))}
+                  </tbody>
                 </Table>
               </td>
             </tr>
