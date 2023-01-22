@@ -1,12 +1,32 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 import './style.css';
 
 function NavBar() {
   return (
     <ul className="NavStyle">
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/about">About</Link></li>
+      <li>
+        <NavLink
+          style={({ isActive }) => {
+            return { color: isActive ? 'red' : 'black' };
+          }}
+          className="NavBar-Link"
+          to="/"
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          style={({ isActive }) => {
+            return { color: isActive ? 'red' : 'black' };
+          }}
+          className="NavBar-Link"
+          to="/about"
+        >
+          About
+        </NavLink>
+      </li>
     </ul>
   );
 }

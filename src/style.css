@@ -4,24 +4,26 @@ p {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-li{
-  list-style: none;
-  text-decoration: none;
-}
-
-Link{
-  text-decoration: none;
-}
-
-Link:hover{
-  color:red;
-}
-Link:active{
-  color:green;
-}
-
-.NavStyle{
-  flex: auto;
+.NavStyle {
   text-align: right;
 }
 
+.NavStyle li {
+  display: inline;
+  padding: 5px;
+}
+
+/* .NavBar-Link .active {
+  color:green;
+} */
+
+.NavBar-Link:hover {
+  color: green;
+}
+
+
+
+.NavBar-Link {
+  text-decoration: none;
+  color: black;
+}
