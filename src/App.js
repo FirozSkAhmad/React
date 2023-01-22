@@ -7,10 +7,24 @@ export default function App() {
   useEffect(() => {
     console.log('useEffect');
   });
+  function multiCount() {
+    console.log("multiCount")
+    return count * 2;
+  }
   return (
     <div>
-      <h1>Hello {name} {count}</h1>
-      <button onClick={() => {setName('myName');setCount(count)}}>Update Name</button>
+      <h1>
+        Hello {name} {count}
+      </h1>
+      <h2>{multiCount()}</h2>
+      <button
+        onClick={() => {
+          setName('myName');
+          setCount(count);
+        }}
+      >
+        Update Name
+      </button>
     </div>
   );
 }
