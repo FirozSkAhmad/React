@@ -6,6 +6,7 @@ import About from './About.js';
 import NavBar from './NavBar.js';
 import Page404 from './Page404.js';
 import User from './Users.js';
+import Filter from './Filter.js'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/user/:name" element={<User />} />
+        <Route path="/filter" element={<Filter />} />
         <Route path="/*" element={<Page404 />} />
         {/* <Route path="/*" element={<Navigate to="/"/>} /> */}
       </Routes>
