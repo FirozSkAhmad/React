@@ -38,6 +38,17 @@ function NavBar() {
           Filter
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          style={({ isActive }) => {
+            return { color: isActive ? 'red' : 'black' };
+          }}
+          className="NavBar-Link"
+          to="/contact"
+        >
+          Contact
+        </NavLink>
+      </li>
     </ul>
   );
 }
