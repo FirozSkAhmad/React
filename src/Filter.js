@@ -13,9 +13,6 @@ function Filtter() {
         onChange={(e) => setName(e.target.value)}
       />
       <button onClick={() => setSearchParams({ name: { name } })}>
-        {
-          console.log(searchParams.get('name'))
-        }
         Set Query params
       </button>
     </>

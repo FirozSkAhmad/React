@@ -11,27 +11,27 @@ import Contact from './Contact.js';
 import Company from './Company.js';
 import Channel from './Channel.js';
 import Other from './Other.js';
-import NavigateOnButtonClick from './NavigateOnButtonClick.js';
+import Login from './Login.js';
+import ProtectedRoute from './ProtectedRoute.js';
 
 function App() {
   return (
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<ProtectedRoute Component={Home} />} />
+        <Route path="/about" element={<ProtectedRoute Component={About} />} />
         <Route path="/user/:name" element={<User />} />
-        <Route path="/filter" element={<Filter />} />
+        <Route path="/filter" element={<ProtectedRoute Component={Filter} />} />
         <Route path="/*" element={<Page404 />} />
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/*" element={<Navigate to="/"/>} /> */}
-        <Route path='/contact' element={<Contact/>}>
-        <Route path='company' element={<Company/>}/>
-        <Route path='channel' element={<Channel/>}/>
-        <Route path='other' element={<Other/>}/>
+        <Route path="/contact/" element={<Contact />}>
+          <Route path="company" element={<Company />} />
+          <Route path="channel" element={<Channel />} />
+          <Route path="other" element={<Other />} />
         </Route>
       </Routes>
-      <br />
-      <NavigateOnButtonClick />
     </BrowserRouter>
   );
 }

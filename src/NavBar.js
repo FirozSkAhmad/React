@@ -49,6 +49,17 @@ function NavBar() {
           Contact
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          style={({ isActive }) => {
+            return { color: isActive ? 'red' : 'black' };
+          }}
+          className="NavBar-Link"
+          to="/login"
+        >
+          Login
+        </NavLink>
+      </li>
     </ul>
   );
 }
