@@ -1,16 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { PureComponent } from 'react';
 import './style.css';
 
-export default function App() {
-  const [name, setName] = useState('firoz');
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    console.log('useEffect');
-  });
-  return (
-    <div>
-      <h1>Hello {name} {count}</h1>
-      <button onClick={() => {setName('myName');setCount(count)}}>Update Name</button>
-    </div>
-  );
+class App extends PureComponent {
+  constructor() {
+    super();
+    this.state = {
+      count: 0,
+    };
+  }
+  render() {
+    console.log('render');
+    return (
+      <div>
+        <h1>Hello {this.state.count}</h1>
+        {/* <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Update Name
+        </button> */}
+        <button onClick={() => this.setState({ count: 1 })}>Update Name</button>
+      </div>
+    );
+  }
 }
+
+export default App;
