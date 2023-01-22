@@ -1,28 +1,23 @@
-import React, { Component, createRef } from 'react';
+import React from 'react';
 import './style.css';
-import User from './User.js';
+import { BrowserRouter, Route, Routes,Navigate } from 'react-router-dom';
+import Home from './Home.js';
+import About from './About.js';
+import NavBar from './NavBar.js';
+import Page404 from './Page404.js';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      val: '',
-    };
-  }
-  render() {
-    return (
-      <div>
-        <h1>Hello !</h1>
-        <input
-          type="text"
-          value={this.state.val}
-          onChange={(e) => this.setState({ val: e.target.value })}
-        />
-        <button onClick={() => this.updateInput()}>Click Me</button>
-        <User state="..." />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/*" element={<Page404 />} />
+        {/* <Route path="/*" element={<Navigate to="/"/>} /> */}
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
