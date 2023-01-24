@@ -48,8 +48,37 @@ export default function App() {
       console.log(res)
       getUsers()
     }))
-
   }
+
+  const [uID, setuId] = useState(null)
+  const [uname, setuName] = useState("")
+  const [uemail, setuEmail] = useState("")
+  const [umobile, setuMobile] = useState("")
+  function update(item) {
+    setuId(item.id)
+    setuName(item.name)
+    setuEmail(item.email)
+    setuMobile(item.mobile)
+  }
+
+  function updateDetails(e) {
+    const id = uID
+    const data = { name: uname, email: uemail, mobile: umobile }
+    console.log(data)
+    fetch(`http://localhost:4000/todo/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then((result) => result.json().then((res) => {
+      console.log(res)
+      getUsers()
+    }))
+    e.preventDefault()
+  }
+
   return (
     <>
       <h1>Post API</h1>
@@ -79,12 +108,23 @@ export default function App() {
                 <td>{item.name}</td>
                 <td>{item.email}</td>
                 <td>{item.mobile}</td>
-                <td><button onClick={() => remove(item.id)}>Delete</button></td>
+                <td>
+                  <button onClick={() => remove(item.id)}>Delete</button>
+                  <button onClick={() => update(item)}>Update</button>
+                </td>
               </tr>
             )
           }
         </tbody>
       </Table>
+
+      <h1>Update data</h1>
+      <form onSubmit={updateDetails}>
+        <input type="text" name="name" value={uname} placeholder="Name" onChange={(e) => setuName(e.target.value)} />
+        <input type="text" name="email" value={uemail} placeholder="Email" onChange={(e) => setuEmail(e.target.value)} />
+        <input type="text" name="mobile" value={umobile} placeholder="Mobile" onChange={(e) => setuMobile(e.target.value)}/>
+        <button type='submit'>Update</button>
+      </form>
     </>
   )
 }
